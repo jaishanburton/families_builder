@@ -1,0 +1,8 @@
+# Ignorer les fichiers et dossiers génériques
+.*
+
+# Ignorer le dossier node_modules
+node_modules/
+
+# Ne pas ignorer le fichier .gitignore lui-même
+!.gitignore

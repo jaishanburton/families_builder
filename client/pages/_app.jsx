@@ -1,13 +1,25 @@
+// pages/_app.js
+
+import React, { useState, useEffect } from 'react';
+import Header from '../components/header';
 import '../app/globals.css';
-import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
+  const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.className = theme;
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
+  };
+
   return (
     <>
-      <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-      </Head>
-      <Component {...pageProps} />
+      <Header theme={theme} toggleTheme={toggleTheme} />
+      <Component {...pageProps} theme={theme} />
     </>
   );
 }

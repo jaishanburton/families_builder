@@ -1,5 +1,3 @@
-// pages/_app.js
-
 import React, { useState, useEffect } from 'react';
 import Header from '../components/header';
 import '../app/globals.css';
